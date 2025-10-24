@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Shamroz Khan - Portfolio",
   description:
-    "Frontend Developer specializing in React, Next.js, and modern web technologies. I build responsive, user-friendly, and high-performance web applications that deliver exceptional digital experiences.",
+    "Frontend Developer specialized in React, Next.js, and modern web technologies. I build responsive, user-friendly, and high-performance web applications that deliver exceptional digital experiences.",
   icons: {
     icon: "/logo.PNG",
     shortcut: "/logo.PNG",
