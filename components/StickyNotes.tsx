@@ -153,7 +153,7 @@ const FeatureNotes: React.FC = () => {
                 text-gray-800 dark:text-gray-100 font-medium
                 transition-all duration-300 ease-out transform
                 ${project.color} ${project.darkColor} ${project.rotate} ${project.hoverRotate}
-                hover:-translate-y-2 hover:scale-105 hover:z-50
+                hover:-translate-y-2 hover:scale-105 hover:z-10
                 hover:brightness-110 dark:hover:brightness-125
                 cursor-pointer
                 ${isLastRow ? 'sm:max-w-xs' : ''}

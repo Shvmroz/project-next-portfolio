@@ -11,11 +11,11 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Shamroz Khan - Portfolio',
   description: 'Portfolio of Shamroz Khan, a web developer and a software engineer',
-  // icons: {
-  //   icon: '/logo.PNG',
-  //   shortcut: '/logo.PNG',
-  //   apple: '/logo.PNG',
-  // },
+  icons: {
+    icon: '/logo.PNG',
+    shortcut: '/logo.PNG',
+    apple: '/logo.PNG',
+  },
 };
 
 export default function RootLayout({

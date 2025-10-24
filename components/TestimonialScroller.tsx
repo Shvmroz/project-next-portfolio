@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon } from "@iconify/react";
 import { QuoteIcon, User } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -10,6 +11,7 @@ interface Testimonial {
   stars: number;
   description: string;
   attendedEvent: string;
+  reviewFrom: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -17,10 +19,11 @@ const testimonials: Testimonial[] = [
     id: 1,
     name: "Alice Morgan",
     profile: "https://randomuser.me/api/portraits/women/68.jpg",
-    stars: 5,
+    stars: 3,
     description:
       "Delivered exactly what we envisioned! The frontend design and functionality were flawless.",
     attendedEvent: "E-Commerce Website Project",
+    reviewFrom: "fiverr",
   },
   {
     id: 2,
@@ -30,78 +33,77 @@ const testimonials: Testimonial[] = [
     description:
       "Professional and timely. The React application exceeded our expectations.",
     attendedEvent: "Social Media Platform Development",
+    reviewFrom: "upwork",
   },
   {
     id: 3,
-    name: "Catherine Smith",
-    profile: "https://randomuser.me/api/portraits/women/45.jpg",
-    stars: 4,
+    name: "Zohaib Ali",
+    profile: "https://randomuser.me/api/portraits/men/45.jpg",
+    stars: 5,
     description:
       "Great communication throughout the project. The final portfolio website looks amazing.",
     attendedEvent: "Portfolio Website Creation",
+    reviewFrom: "linkedin",
   },
   {
     id: 4,
-    name: "David Johnson",
-    profile: "https://randomuser.me/api/portraits/men/41.jpg",
-    stars: 5,
+    name: "Hafsa Sheikh",
+    profile: "https://randomuser.me/api/portraits/women/41.jpg",
+    stars: 4,
     description:
       "The booking system is seamless, intuitive, and bug-free. Excellent work!",
     attendedEvent: "Online Booking System",
+    reviewFrom: "freelancer",
   },
   {
     id: 5,
-    name: "Emma Wilson",
+    name: "Ayesha Khan",
     profile: "https://randomuser.me/api/portraits/women/50.jpg",
     stars: 5,
     description:
       "Delivered a dashboard app with all requested features and smooth UI interactions.",
     attendedEvent: "Dashboard App Development",
+    reviewFrom: "peopleperhour",
   },
   {
     id: 6,
-    name: "Frank Martinez",
-    profile: "https://randomuser.me/api/portraits/men/55.jpg",
+    name: "Daniel Cooper",
+    profile: "https://randomuser.me/api/portraits/men/35.jpg",
     stars: 4,
     description:
-      "The chat application works perfectly. Very satisfied with the implementation.",
-    attendedEvent: "Real-Time Chat App",
+      "Clean code, excellent use of Next.js, and pixel-perfect frontend design. Highly recommended.",
+    attendedEvent: "Corporate Website Revamp",
+    reviewFrom: "fiverr",
   },
   {
     id: 7,
-    name: "Grace Taylor",
+    name: "Zainab Tariq",
     profile: "https://randomuser.me/api/portraits/women/33.jpg",
     stars: 5,
     description:
-      "Analytics platform provides exactly the insights we needed. Great job!",
-    attendedEvent: "Analytics Platform Project",
+      "Brilliant problem solver! The React dashboard was delivered with precision and modern UI.",
+    attendedEvent: "Admin Dashboard Development",
+    reviewFrom: "upwork",
   },
   {
     id: 8,
-    name: "Henry Brown",
-    profile: "https://randomuser.me/api/portraits/men/60.jpg",
+    name: "Michael Adams",
+    profile: "https://randomuser.me/api/portraits/men/37.jpg",
     stars: 5,
     description:
-      "Our blog platform is fast, responsive, and easy to manage thanks to the developer's effort.",
-    attendedEvent: "Blog Platform Development",
+      "The website’s performance and responsiveness are top-notch. Excellent attention to detail.",
+    attendedEvent: "Business Landing Page",
+    reviewFrom: "linkedin",
   },
   {
     id: 9,
-    name: "Isabella Davis",
-    profile: "https://randomuser.me/api/portraits/women/22.jpg",
+    name: "Sara Javed",
+    profile: "https://randomuser.me/api/portraits/women/52.jpg",
     stars: 4,
     description:
-      "Highly professional and delivered a project exactly on time. Very happy!",
-    attendedEvent: "E-Commerce Website Project",
-  },
-  {
-    id: 10,
-    name: "Jack Wilson",
-    profile: "https://randomuser.me/api/portraits/men/18.jpg",
-    stars: 5,
-    description:
-      "Front-end is modern, responsive, and works flawlessly across devices.",
-    attendedEvent: "Portfolio Website Creation",
+      "Loved the professionalism and clarity. The UI updates improved our site engagement drastically!",
+    attendedEvent: "Website Redesign",
+    reviewFrom: "freelancer",
   },
 ];
 
@@ -116,30 +118,31 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
       "
       style={{ width: "100%", height: "100%" }}
     >
+      {/* Quote Icon */}
       <div className="absolute top-1 right-1 text-gray-200 dark:text-gray-700">
         <QuoteIcon className="w-14 h-14" />
       </div>
 
       {/* Top: Profile & Stars */}
       <div className="flex items-center space-x-3 mb-4">
-        {testimonial.profile ? (
-          <img
-            src={testimonial.profile}
-            alt={testimonial.name}
-            className="w-12 h-12 rounded-full object-cover"
-          />
-        ) : (
-          <div className="w-12 h-12 rounded-full bg-gray-400 dark:bg-gray-700 flex items-center justify-center">
-            <User className="w-6 h-6 text-white" />
-          </div>
-        )}
         <div className="flex flex-col">
           <h3 className="font-bold text-gray-900 dark:text-gray-50 text-md">
             {testimonial.name}
           </h3>
-          <div className="flex text-yellow-400 text-xl">
-            {Array.from({ length: testimonial.stars }).map((_, i) => (
-              <span key={i}>★</span>
+
+          {/* Always show 5 stars */}
+          <div className="flex text-xl">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <span
+                key={i}
+                className={
+                  i < testimonial.stars
+                    ? "text-yellow-400" // filled
+                    : "text-gray-400 dark:text-gray-600" // hollow
+                }
+              >
+                {i < testimonial.stars ? "★" : "☆"}
+              </span>
             ))}
           </div>
         </div>
@@ -147,24 +150,50 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 
       {/* Middle: Fixed height description */}
       <div
-        className="text-sm text-gray-700 dark:text-gray-400"
+        className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed italic"
         style={{
           display: "-webkit-box",
-          WebkitLineClamp: 3,
+          WebkitLineClamp: 4,
           WebkitBoxOrient: "vertical",
           overflow: "hidden",
         }}
       >
-        {testimonial.description}
+        “{testimonial.description}”
       </div>
 
-      {/* Bottom: Always pinned */}
-      {testimonial.attendedEvent && (
-        <div className="flex items-center gap-1.5 text-gray-400 dark:text-gray-400 text-xs mt-auto pt-3 border-t border-gray-200 dark:border-gray-700">
-          <span className="w-2 h-2 rounded-full bg-blue-400 dark:bg-blue-800 inline-block" />
-          <span className="truncate">{testimonial.attendedEvent}</span>
-        </div>
-      )}
+      <div
+        className={`absolute bottom-3 right-3 flex items-center gap-2 px-3 py-1.5 rounded-t-lg text-sm font-medium shadow-sm
+  ${
+    testimonial.reviewFrom.includes("fiverr")
+      ? "bg-green-50 text-[#1dbf73]"
+      : testimonial.reviewFrom.includes("upwork")
+      ? "bg-emerald-50 text-[#14a800]"
+      : testimonial.reviewFrom.includes("linkedin")
+      ? "bg-blue-50 text-[#0077b5]"
+      : testimonial.reviewFrom.includes("freelancer")
+      ? "bg-sky-50 text-[#29b2fe]"
+      : testimonial.reviewFrom.includes("peopleperhour")
+      ? "bg-orange-50 text-[#f36a22]"
+      : "bg-gray-100 text-gray-600"
+  }`}
+      >
+        {testimonial.reviewFrom.includes("fiverr") && (
+          <Icon icon="jam:fiverr" className="w-5 h-5" />
+        )}
+        {testimonial.reviewFrom.includes("upwork") && (
+          <Icon icon="simple-icons:upwork" className="w-5 h-5" />
+        )}
+        {testimonial.reviewFrom.includes("linkedin") && (
+          <Icon icon="mdi:linkedin" className="w-5 h-5" />
+        )}
+        {testimonial.reviewFrom.includes("freelancer") && (
+          <Icon icon="simple-icons:freelancer" className="w-5 h-5" />
+        )}
+        {testimonial.reviewFrom.includes("peopleperhour") && (
+          <Icon icon="ph:smiley-blank-bold" className="w-5 h-5" />
+        )}
+        <span className="capitalize">{testimonial.reviewFrom}</span>
+      </div>
     </div>
   );
 }
@@ -201,7 +230,9 @@ export default function TestimonialScroller() {
   useEffect(() => {
     const updateLayout = () => {
       const screenWidth = window.innerWidth;
-      const rowCount = screenWidth < 768 ? 6 : 3;
+      // const rowCount = screenWidth < 768 ? 6 : 3;
+      const rowCount = screenWidth >= 1024 ? 2 : 4;
+
       const newRows: Testimonial[][] = [];
       for (let i = 0; i < rowCount; i++) {
         const rowTestimonials: Testimonial[] = [];
@@ -341,20 +372,20 @@ export default function TestimonialScroller() {
   return (
     <div
       id="testimonials"
-      className="scrolling-grid pt-[80px] pb-[60px] dark:bg-gray-950"
+      className="scrolling-grid pt-[80px] pb-[60px] bg-gradient-to-br from-gray-50 to-blue-100"
       ref={containerRef}
     >
       <div className="text-center mb-12 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-          What My
+        <h2 className="flex items-center justify-center gap-2 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          Love from
           <span className="block bg-gradient-to-r from-[#2684FC] to-[#4A90E2] bg-clip-text text-transparent">
-            Clients Say
+           Clients
           </span>
         </h2>
         <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          Hear directly from my clients about the projects I’ve delivered — from
-          websites and apps to dashboards and platforms. See how my work has
-          helped them achieve their goals efficiently and creatively.
+          Here’s what my clients honestly think about working with me — their
+          experiences, feedback, and a few kind words that keep me motivated to
+          keep building better every day.
         </p>
       </div>
 

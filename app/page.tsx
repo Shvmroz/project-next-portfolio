@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
 import MySkills from "@/components/MySkills";
-import AchievementsAndEducation from "@/components/AchievementsAndEducation";
+import TimeLine from "@/components/TimeLine";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import TestimonialScroller from "@/components/TestimonialScroller";
@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <MySkills />
       <FeatureNotes/>
-      <AchievementsAndEducation />
+      <TimeLine />
       <TestimonialScroller />
       <FAQ />
       <Contact />
