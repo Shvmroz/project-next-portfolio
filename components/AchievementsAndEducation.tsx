@@ -86,131 +86,176 @@ export default function AchievementsAndEducation() {
           </p>
         </div>
 
-        {/* Horizontal Wave Timeline */}
-        <div className="relative max-w-7xl mx-auto">
-          {/* Wave Path - Desktop */}
-          <div className="hidden md:block relative h-32">
-            <svg
-              className="absolute inset-0 w-full h-full"
-              viewBox="0 0 1200 120"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0,60 Q150,20 300,60 T600,60 T900,60 T1200,60"
-                stroke="url(#gradient)"
-                strokeWidth="3"
-                fill="none"
-                className="drop-shadow-sm"
-              />
-              <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#2684FC" />
-                  <stop offset="100%" stopColor="#4A90E2" />
-                </linearGradient>
-              </defs>
-            </svg>
+        {/* Horizontal Scrollable Timeline */}
+        <div className="relative">
+          {/* Scrollable Container */}
+          <div className="overflow-x-auto pb-4">
+            <div className="relative min-w-max px-4">
+              {/* Road Path */}
+              <div className="relative h-32 mb-8">
+                <svg
+                  className="absolute inset-0 w-full h-full"
+                  viewBox={`0 0 ${timeline.length * 300} 120`}
+                  preserveAspectRatio="none"
+                  style={{ minWidth: `${timeline.length * 300}px` }}
+                >
+                  {/* Single Color Road Path */}
+                  <path
+                    d={`M50,60 ${timeline.map((_, index) => {
+                      const x = 50 + index * 300;
+                      const y = 60 + (index % 2 === 0 ? 0 : Math.sin(index) * 20);
+                      return `L${x},${y}`;
+                    }).join(' ')}`}
+                    stroke="#2684FC"
+                    strokeWidth="4"
+                    fill="none"
+                    className="drop-shadow-sm"
+                  />
+                  
+                  {/* Road Dots */}
+                  {timeline.map((_, index) => {
+                    const x = 50 + index * 300;
+                    const y = 60 + (index % 2 === 0 ? 0 : Math.sin(index) * 20);
+                    return (
+                      <circle
+                        key={index}
+                        cx={x}
+                        cy={y}
+                        r="8"
+                        fill="#2684FC"
+                        stroke="white"
+                        strokeWidth="3"
+                        className="drop-shadow-sm"
+                      />
+                    );
+                  })}
+                </svg>
+              </div>
+
+              {/* Timeline Items */}
+              <div className="flex gap-8" style={{ minWidth: `${timeline.length * 300}px` }}>
+                {timeline.map((item, index) => {
+                  const isTop = index % 2 === 0;
+                  
+                  return (
+                    <div key={index} className="relative flex-shrink-0 w-64">
+                      {/* Card */}
+                      <div className={`relative p-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${isTop ? '-mt-32' : 'mt-8'}`}>
+                        {/* Icon */}
+                        <div className="text-2xl mb-3 text-center">{item.icon}</div>
+                        
+                        {/* Content */}
+                        {item.type === "study" ? (
+                          <>
+                            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2 text-center leading-tight">
+                              {item.degree}
+                            </h3>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 text-center">
+                              {item.institution}
+                            </p>
+                            <div className="text-center">
+                              <span className="inline-block px-3 py-1 bg-[#2684FC]/10 text-[#2684FC] dark:bg-[#2684FC]/20 dark:text-[#4A90E2] text-xs font-medium rounded-full">
+                                {item.year}
+                              </span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2 text-center leading-tight">
+                              {item.title}
+                            </h3>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 text-center">
+                              {item.description}
+                            </p>
+                            <div className="text-center">
+                              <span className="inline-block px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400 text-xs font-medium rounded-full">
+                                {item.date}
+                              </span>
+                            </div>
+                          </>
+                        )}
+
+                        {/* Connector Line */}
+                        <div className={`absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-[#2684FC] ${isTop ? 'top-full h-8' : 'bottom-full h-8'}`}></div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
-          {/* Mobile Vertical Line */}
-          <div className="md:hidden absolute left-4 top-0 w-0.5 bg-gradient-to-b from-[#2684FC] to-[#4A90E2] h-full rounded-full"></div>
+          {/* Scroll Indicators */}
+          <div className="flex justify-center mt-4 space-x-2">
+            {timeline.map((_, index) => (
+              <div
+                key={index}
+                className="w-2 h-2 rounded-full bg-[#2684FC]/30 hover:bg-[#2684FC] transition-colors cursor-pointer"
+                onClick={() => {
+                  const container = document.querySelector('.overflow-x-auto');
+                  if (container) {
+                    container.scrollTo({
+                      left: index * 300,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+              ></div>
+            ))}
+          </div>
+        </div>
 
-          {/* Timeline Items */}
-          <div className="relative">
-            {/* Desktop Grid */}
-            <div className="hidden md:grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 -mt-16">
-              {timeline.map((item, index) => {
-                const isTop = index % 2 === 0;
-                
-                return (
-                  <div key={index} className="relative">
-                    {/* Connection Dot */}
-                    <div className={`absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#2684FC] rounded-full border-2 border-white dark:border-gray-800 shadow-lg z-10 ${isTop ? 'top-16' : 'bottom-16'}`}></div>
+        {/* Mobile Compact View */}
+        <div className="md:hidden mt-8">
+          <div className="space-y-4">
+            {timeline.map((item, index) => (
+              <div key={index} className="flex items-start space-x-3">
+                {/* Timeline Dot */}
+                <div className="relative">
+                  <div className="w-4 h-4 bg-[#2684FC] rounded-full border-2 border-white dark:border-gray-800 shadow-sm flex-shrink-0 mt-1"></div>
+                  {index < timeline.length - 1 && (
+                    <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-0.5 h-8 bg-[#2684FC]/30"></div>
+                  )}
+                </div>
+
+                {/* Content Card */}
+                <div className="flex-1 p-3 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+                  <div className="flex items-start space-x-3">
+                    {/* Icon */}
+                    <div className="text-lg flex-shrink-0">{item.icon}</div>
                     
-                    {/* Card */}
-                    <div className={`relative p-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${isTop ? 'mb-20' : 'mt-20'}`}>
-                      {/* Icon */}
-                      <div className="text-lg mb-1 text-center">{item.icon}</div>
-                      
-                      {/* Content */}
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
                       {item.type === "study" ? (
                         <>
-                          <h3 className="text-xs font-bold text-gray-900 dark:text-white mb-1 text-center leading-tight">
+                          <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1 leading-tight">
                             {item.degree}
                           </h3>
-                          <p className="text-xs text-gray-600 dark:text-gray-400 mb-1 text-center">
+                          <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">
                             {item.institution}
                           </p>
-                          <span className="block text-center px-2 py-0.5 bg-[#2684FC]/10 text-[#2684FC] dark:bg-[#2684FC]/20 dark:text-[#4A90E2] text-xs font-medium rounded-full">
+                          <span className="inline-block px-2 py-1 bg-[#2684FC]/10 text-[#2684FC] dark:bg-[#2684FC]/20 dark:text-[#4A90E2] text-xs font-medium rounded-full">
                             {item.year}
                           </span>
                         </>
                       ) : (
                         <>
-                          <h3 className="text-xs font-bold text-gray-900 dark:text-white mb-1 text-center leading-tight">
+                          <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1 leading-tight">
                             {item.title}
                           </h3>
-                          <p className="text-xs text-gray-600 dark:text-gray-400 mb-1 text-center">
+                          <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">
                             {item.description}
                           </p>
-                          <span className="block text-center px-2 py-0.5 bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400 text-xs font-medium rounded-full">
+                          <span className="inline-block px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400 text-xs font-medium rounded-full">
                             {item.date}
                           </span>
                         </>
                       )}
                     </div>
                   </div>
-                );
-              })}
-            </div>
-
-            {/* Mobile Layout */}
-            <div className="md:hidden space-y-4">
-              {timeline.map((item, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  {/* Timeline Dot */}
-                  <div className="relative">
-                    <div className="w-3 h-3 bg-[#2684FC] rounded-full border-2 border-white dark:border-gray-800 shadow-sm"></div>
-                  </div>
-
-                  {/* Content Card */}
-                  <div className="flex-1 p-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
-                    <div className="flex items-start space-x-2">
-                      {/* Icon */}
-                      <div className="text-base flex-shrink-0">{item.icon}</div>
-                      
-                      {/* Content */}
-                      <div className="flex-1 min-w-0">
-                        {item.type === "study" ? (
-                          <>
-                            <h3 className="text-xs font-bold text-gray-900 dark:text-white mb-1 leading-tight">
-                              {item.degree}
-                            </h3>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
-                              {item.institution}
-                            </p>
-                            <span className="inline-block px-2 py-0.5 bg-[#2684FC]/10 text-[#2684FC] dark:bg-[#2684FC]/20 dark:text-[#4A90E2] text-xs font-medium rounded-full">
-                              {item.year}
-                            </span>
-                          </>
-                        ) : (
-                          <>
-                            <h3 className="text-xs font-bold text-gray-900 dark:text-white mb-1 leading-tight">
-                              {item.title}
-                            </h3>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
-                              {item.description}
-                            </p>
-                            <span className="inline-block px-2 py-0.5 bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400 text-xs font-medium rounded-full">
-                              {item.date}
-                            </span>
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
