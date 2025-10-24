@@ -1,20 +1,21 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
-import RouteChangeHandler from './RouteChangeHandler';
-import FloatingNavbar from '@/components/FloatingNavbar';
-import Footer from '@/components/Footer';
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import RouteChangeHandler from "./RouteChangeHandler";
+import FloatingNavbar from "@/components/FloatingNavbar";
+import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Shamroz Khan - Portfolio',
-  description: 'Portfolio of Shamroz Khan, a web developer and a software engineer',
+  title: "Shamroz Khan - Portfolio",
+  description:
+    "Frontend Developer specializing in React, Next.js, and modern web technologies. I build responsive, user-friendly, and high-performance web applications that deliver exceptional digital experiences.",
   icons: {
-    icon: '/logo.PNG',
-    shortcut: '/logo.PNG',
-    apple: '/logo.PNG',
+    icon: "/logo.PNG",
+    shortcut: "/logo.PNG",
+    apple: "/logo.PNG",
   },
 };
 
@@ -34,9 +35,7 @@ export default function RootLayout({
         >
           <RouteChangeHandler />
           <FloatingNavbar />
-          <main className="relative min-h-screen">
-            {children}
-          </main>
+          <main className="relative min-h-screen">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
