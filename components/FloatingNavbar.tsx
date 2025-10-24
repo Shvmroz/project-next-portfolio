@@ -44,10 +44,34 @@ export default function FloatingNavbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
             <Link
+              href="/#skills"
+              className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
+            >
+              Skills
+            </Link>
+            <Link
               href="/#projects"
               className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
             >
               Projects
+            </Link>
+            <Link
+              href="/#achievements"
+              className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
+            >
+              Achievements
+            </Link>
+            <Link
+              href="/#testimonials"
+              className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
+            >
+              Testimonials
+            </Link>
+            <Link
+              href="/#faq"
+              className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
+            >
+              FAQ
             </Link>
           </div>
 
@@ -148,18 +172,32 @@ export default function FloatingNavbar() {
             <div className="p-4">
               <div className="space-y-3 mb-6">
                 <Link
-                  href="/#features"
+                  href="/#skills"
                   className="block text-gray-700 dark:text-gray-200 hover:text-[#2684FC] dark:hover:text-[#4CA6EA] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-gray-800/70"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Features
+                  Skills
                 </Link>
                 <Link
-                  href="/#companies"
+                  href="/#projects"
                   className="block text-gray-700 dark:text-gray-200 hover:text-[#2684FC] dark:hover:text-[#4CA6EA] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-gray-800/70"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Companies
+                  Projects
+                </Link>
+                <Link
+                  href="/#achievements"
+                  className="block text-gray-700 dark:text-gray-200 hover:text-[#2684FC] dark:hover:text-[#4CA6EA] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-gray-800/70"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Achievements
+                </Link>
+                <Link
+                  href="/#testimonials"
+                  className="block text-gray-700 dark:text-gray-200 hover:text-[#2684FC] dark:hover:text-[#4CA6EA] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-gray-800/70"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Testimonials
                 </Link>
                 <Link
                   href="/#faq"
@@ -174,34 +212,6 @@ export default function FloatingNavbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact
-                </Link>
-              </div>
-
-              {/* Mobile Menu Buttons - In One Row */}
-              <div className="flex space-x-3">
-                <Link
-                  href="/login"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex-1"
-                >
-                  <Button
-                    variant="ghost"
-                    className="w-full text-[#2684FC] hover:text-[#1E6DE8] dark:hover:text-[#4CA6EA] hover:bg-gray-100/70 dark:hover:bg-gray-800/70 transition-colors"
-                  >
-                    Sign In
-                  </Button>
-                </Link>
-                <Link
-                  href="/signup"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex-1"
-                >
-                  <Button
-                    variant="ghost"
-                    className="w-full text-[#2684FC] hover:text-[#1E6DE8] dark:hover:text-[#4CA6EA] hover:bg-gray-100/70 dark:hover:bg-gray-800/70 transition-colors"
-                  >
-                    Get Started
-                  </Button>
                 </Link>
               </div>
             </div>
