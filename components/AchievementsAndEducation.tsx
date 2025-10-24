@@ -1,66 +1,66 @@
 "use client";
 
 const timeline = [
-  { 
-    type: "study", 
-    degree: "BSc Computer Science", 
-    institution: "BZU Multan", 
+  {
+    type: "study",
+    degree: "BSc Computer Science",
+    institution: "BZU Multan",
     year: "2019-21",
     icon: "🎓"
   },
-  { 
-    type: "study", 
-    degree: "MSc Computer Science", 
-    institution: "GCU Faisalabad", 
+  {
+    type: "study",
+    degree: "MSc Computer Science",
+    institution: "GCU Faisalabad",
     year: "2021-23",
     icon: "🎓"
   },
-  { 
-    type: "study", 
-    degree: "Frontend Development", 
-    institution: "Self Learning", 
+  {
+    type: "study",
+    degree: "Frontend Development",
+    institution: "Self Learning",
     year: "8 months",
     icon: "💻"
   },
-  { 
-    type: "study", 
-    degree: "Internship", 
-    institution: "Metalogix Sahiwal", 
+  {
+    type: "study",
+    degree: "Internship",
+    institution: "Metalogix Sahiwal",
     year: "3 months",
     icon: "🏢"
   },
-  { 
-    type: "study", 
-    degree: "Full-time Job", 
-    institution: "Metalogix Sahiwal", 
+  {
+    type: "study",
+    degree: "Full-time Job",
+    institution: "Metalogix Sahiwal",
     year: "Present",
     icon: "💼"
   },
-  { 
-    type: "achievement", 
-    title: "Portfolio Website", 
-    description: "React, Next.js, TailwindCSS", 
+  {
+    type: "achievement",
+    title: "Portfolio Website",
+    description: "React, Next.js, TailwindCSS",
     date: "Jan 2024",
     icon: "🌐"
   },
-  { 
-    type: "achievement", 
-    title: "E-commerce Platform", 
-    description: "Payment integration", 
+  {
+    type: "achievement",
+    title: "E-commerce Platform",
+    description: "Payment integration",
     date: "Apr 2024",
     icon: "🛒"
   },
-  { 
-    type: "achievement", 
-    title: "Dashboard App", 
-    description: "Charts & analytics", 
+  {
+    type: "achievement",
+    title: "Dashboard App",
+    description: "Charts & analytics",
     date: "Jul 2024",
     icon: "📊"
   },
-  { 
-    type: "achievement", 
-    title: "Real-Time Chat App", 
-    description: "WebSocket support", 
+  {
+    type: "achievement",
+    title: "Real-Time Chat App",
+    description: "WebSocket support",
     date: "Sep 2024",
     icon: "💬"
   },
@@ -86,176 +86,65 @@ export default function AchievementsAndEducation() {
           </p>
         </div>
 
-        {/* Horizontal Scrollable Timeline */}
-        <div className="relative">
-          {/* Scrollable Container */}
-          <div className="overflow-x-auto pb-4">
-            <div className="relative min-w-max px-4">
-              {/* Road Path */}
-              <div className="relative h-32 mb-8">
-                <svg
-                  className="absolute inset-0 w-full h-full"
-                  viewBox={`0 0 ${timeline.length * 300} 120`}
-                  preserveAspectRatio="none"
-                  style={{ minWidth: `${timeline.length * 300}px` }}
-                >
-                  {/* Single Color Road Path */}
-                  <path
-                    d={`M50,60 ${timeline.map((_, index) => {
-                      const x = 50 + index * 300;
-                      const y = 60 + (index % 2 === 0 ? 0 : Math.sin(index) * 20);
-                      return `L${x},${y}`;
-                    }).join(' ')}`}
-                    stroke="#2684FC"
-                    strokeWidth="4"
-                    fill="none"
-                    className="drop-shadow-sm"
-                  />
-                  
-                  {/* Road Dots */}
-                  {timeline.map((_, index) => {
-                    const x = 50 + index * 300;
-                    const y = 60 + (index % 2 === 0 ? 0 : Math.sin(index) * 20);
-                    return (
-                      <circle
-                        key={index}
-                        cx={x}
-                        cy={y}
-                        r="8"
-                        fill="#2684FC"
-                        stroke="white"
-                        strokeWidth="3"
-                        className="drop-shadow-sm"
-                      />
-                    );
-                  })}
-                </svg>
-              </div>
+        {/* Vertical Alternating Timeline */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            {/* Center Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#2684FC] to-[#4A90E2]"></div>
 
-              {/* Timeline Items */}
-              <div className="flex gap-8" style={{ minWidth: `${timeline.length * 300}px` }}>
-                {timeline.map((item, index) => {
-                  const isTop = index % 2 === 0;
-                  
-                  return (
-                    <div key={index} className="relative flex-shrink-0 w-64">
-                      {/* Card */}
-                      <div className={`relative p-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${isTop ? '-mt-32' : 'mt-8'}`}>
-                        {/* Icon */}
-                        <div className="text-2xl mb-3 text-center">{item.icon}</div>
-                        
-                        {/* Content */}
-                        {item.type === "study" ? (
-                          <>
-                            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2 text-center leading-tight">
-                              {item.degree}
-                            </h3>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 text-center">
-                              {item.institution}
-                            </p>
-                            <div className="text-center">
-                              <span className="inline-block px-3 py-1 bg-[#2684FC]/10 text-[#2684FC] dark:bg-[#2684FC]/20 dark:text-[#4A90E2] text-xs font-medium rounded-full">
-                                {item.year}
-                              </span>
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2 text-center leading-tight">
-                              {item.title}
-                            </h3>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 text-center">
-                              {item.description}
-                            </p>
-                            <div className="text-center">
-                              <span className="inline-block px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400 text-xs font-medium rounded-full">
-                                {item.date}
-                              </span>
-                            </div>
-                          </>
-                        )}
+            {/* Timeline Items */}
+            <div className="space-y-6 sm:space-y-8">
+              {timeline.map((item, index) => {
+                const isLeft = index % 2 === 0;
 
-                        {/* Connector Line */}
-                        <div className={`absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-[#2684FC] ${isTop ? 'top-full h-8' : 'bottom-full h-8'}`}></div>
-                      </div>
+                return (
+                  <div key={index} className="relative flex items-center">
+                    {/* Left Side Content */}
+                    <div className={`w-1/2 ${isLeft ? 'pr-8 text-right' : 'pr-0'}`}>
+                      {isLeft && (
+                        <div className="inline-block">
+                          <div className="flex items-center justify-end gap-2 mb-1">
+                            <span className="text-base sm:text-lg">{item.icon}</span>
+                            <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">
+                              {item.type === "study" ? item.degree : item.title}
+                            </h3>
+                          </div>
+                          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                            {item.type === "study" ? item.institution : item.description}
+                          </p>
+                          <p className="text-xs sm:text-sm font-medium text-[#2684FC] dark:text-[#4A90E2] mt-1">
+                            {item.type === "study" ? item.year : item.date}
+                          </p>
+                        </div>
+                      )}
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
 
-          {/* Scroll Indicators */}
-          <div className="flex justify-center mt-4 space-x-2">
-            {timeline.map((_, index) => (
-              <div
-                key={index}
-                className="w-2 h-2 rounded-full bg-[#2684FC]/30 hover:bg-[#2684FC] transition-colors cursor-pointer"
-                onClick={() => {
-                  const container = document.querySelector('.overflow-x-auto');
-                  if (container) {
-                    container.scrollTo({
-                      left: index * 300,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
-              ></div>
-            ))}
-          </div>
-        </div>
+                    {/* Center Dot */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#2684FC] rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
 
-        {/* Mobile Compact View */}
-        <div className="md:hidden mt-8">
-          <div className="space-y-4">
-            {timeline.map((item, index) => (
-              <div key={index} className="flex items-start space-x-3">
-                {/* Timeline Dot */}
-                <div className="relative">
-                  <div className="w-4 h-4 bg-[#2684FC] rounded-full border-2 border-white dark:border-gray-800 shadow-sm flex-shrink-0 mt-1"></div>
-                  {index < timeline.length - 1 && (
-                    <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-0.5 h-8 bg-[#2684FC]/30"></div>
-                  )}
-                </div>
-
-                {/* Content Card */}
-                <div className="flex-1 p-3 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
-                  <div className="flex items-start space-x-3">
-                    {/* Icon */}
-                    <div className="text-lg flex-shrink-0">{item.icon}</div>
-                    
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      {item.type === "study" ? (
-                        <>
-                          <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1 leading-tight">
-                            {item.degree}
-                          </h3>
-                          <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">
-                            {item.institution}
+                    {/* Right Side Content */}
+                    <div className={`w-1/2 ${!isLeft ? 'pl-8 text-left' : 'pl-0'}`}>
+                      {!isLeft && (
+                        <div className="inline-block">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="text-base sm:text-lg">{item.icon}</span>
+                            <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">
+                              {item.type === "study" ? item.degree : item.title}
+                            </h3>
+                          </div>
+                          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                            {item.type === "study" ? item.institution : item.description}
                           </p>
-                          <span className="inline-block px-2 py-1 bg-[#2684FC]/10 text-[#2684FC] dark:bg-[#2684FC]/20 dark:text-[#4A90E2] text-xs font-medium rounded-full">
-                            {item.year}
-                          </span>
-                        </>
-                      ) : (
-                        <>
-                          <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1 leading-tight">
-                            {item.title}
-                          </h3>
-                          <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">
-                            {item.description}
+                          <p className="text-xs sm:text-sm font-medium text-[#2684FC] dark:text-[#4A90E2] mt-1">
+                            {item.type === "study" ? item.year : item.date}
                           </p>
-                          <span className="inline-block px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400 text-xs font-medium rounded-full">
-                            {item.date}
-                          </span>
-                        </>
+                        </div>
                       )}
                     </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
