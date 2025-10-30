@@ -56,17 +56,17 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900"
+      className="py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-gray-100"
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
             Frequently Asked
             <span className="bg-gradient-to-r from-[#2684FC] to-[#4A90E2] bg-clip-text text-transparent ml-3">
               Questions
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed px-4">
             Get answers to common questions clients ask when hiring a frontend
             developer, including timelines, technologies, and post-launch
             support.{" "}
@@ -77,13 +77,13 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="mb-4 lg:mb-6 bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden"
+              className="mb-4 lg:mb-6 bg-white rounded-xl lg:rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
             >
               <button
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-4 sm:px-6 lg:px-8 py-4 lg:py-6 text-left flex items-center justify-between transition-colors duration-200"
               >
-                <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 dark:text-white pr-4">
+                <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 pr-4">
                   {faq.question}
                 </h3>
                 {openIndex === index ? (
@@ -95,7 +95,7 @@ export default function FAQ() {
 
               {openIndex === index && (
                 <div className="px-4 sm:px-6 lg:px-8 pb-4 lg:pb-6">
-                  <p className="text-xs sm:text-sm lg:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm lg:text-base text-gray-700 leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

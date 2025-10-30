@@ -14,7 +14,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-b from-gray-800 to-gray-900 dark:from-gray-900 dark:to-black text-white">
+    <footer className="relative bg-gradient-to-b from-gray-800 to-gray-900 text-white">
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:pt-16 lg:pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           <div className="sm:col-span-2 lg:col-span-2">
@@ -23,7 +23,7 @@ export default function Footer() {
                 Shamroz Khan
               </span>
             </div>
-            <p className="text-sm lg:text-base text-gray-300 dark:text-gray-400 mb-4 lg:mb-6 max-w-md leading-relaxed text-center sm:text-left">
+            <p className="text-sm lg:text-base text-gray-300 mb-4 lg:mb-6 max-w-md leading-relaxed text-center sm:text-left">
               Passionate web developer with expertise in building responsive,
               user-friendly web applications. Skilled in modern frontend
               technologies like React, Next.js, and Tailwind CSS.
@@ -39,7 +39,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/#skills"
-                  className="text-sm lg:text-base text-gray-300 dark:text-gray-400 hover:text-[#2684FC] transition-colors"
+                  className="text-sm lg:text-base text-gray-300 hover:text-[#2684FC] transition-colors"
                 >
                   Skills
                 </Link>
@@ -47,7 +47,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/#projects"
-                  className="text-sm lg:text-base text-gray-300 dark:text-gray-400 hover:text-[#2684FC] transition-colors"
+                  className="text-sm lg:text-base text-gray-300 hover:text-[#2684FC] transition-colors"
                 >
                   Projects
                 </Link>
@@ -55,7 +55,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/#journey"
-                  className="text-sm lg:text-base text-gray-300 dark:text-gray-400 hover:text-[#2684FC] transition-colors"
+                  className="text-sm lg:text-base text-gray-300 hover:text-[#2684FC] transition-colors"
                 >
                   Journey
                 </Link>
@@ -63,7 +63,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/#faq"
-                  className="text-sm lg:text-base text-gray-300 dark:text-gray-400 hover:text-[#2684FC] transition-colors"
+                  className="text-sm lg:text-base text-gray-300 hover:text-[#2684FC] transition-colors"
                 >
                   FAQ
                 </Link>
@@ -71,7 +71,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/#testimonials"
-                  className="text-sm lg:text-base text-gray-300 dark:text-gray-400 hover:text-[#2684FC] transition-colors"
+                  className="text-sm lg:text-base text-gray-300 hover:text-[#2684FC] transition-colors"
                 >
                   Testimonials
                 </Link>
@@ -94,15 +94,15 @@ export default function Footer() {
               Get-in Touch
             </h3>
             <ul className="space-y-2 lg:space-y-3">
-              <li className="flex items-center text-gray-300 dark:text-gray-400 justify-center sm:justify-start">
+              <li className="flex items-center text-gray-300 justify-center sm:justify-start">
                 <Mail className="w-3 h-3 lg:w-4 lg:h-4 mr-2 lg:mr-3 text-[#2684FC] flex-shrink-0" />
                 <span className="text-sm lg:text-base">shvmroz@gmail.com</span>
               </li>
-              <li className="flex items-center text-gray-300 dark:text-gray-400 justify-center sm:justify-start">
+              <li className="flex items-center text-gray-300 justify-center sm:justify-start">
                 <Phone className="w-3 h-3 lg:w-4 lg:h-4 mr-2 lg:mr-3 text-[#2684FC] flex-shrink-0" />
                 <span className="text-sm lg:text-base">+92 306 6520002</span>
               </li>
-              <li className="flex items-start text-gray-300 dark:text-gray-400 justify-center sm:justify-start">
+              <li className="flex items-start text-gray-300 justify-center sm:justify-start">
                 <MapPin className="w-3 h-3 lg:w-4 lg:h-4 mr-2 lg:mr-3 mt-1 text-[#2684FC] flex-shrink-0" />
                 <span className="text-sm lg:text-base text-center sm:text-left">
                   Lahore, Punjab, Pakistan
@@ -146,9 +146,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 dark:border-gray-800 mt-8 lg:mt-12 pt-6 lg:pt-8">
+        <div className="border-t border-gray-700 mt-8 lg:mt-12 pt-6 lg:pt-8">
           <div className="flex flex-col md:flex-row justify-center items-center">
-            <p className="text-gray-400 dark:text-gray-500 text-xs lg:text-sm text-center md:text-left">
+            <p className="text-gray-400 text-xs lg:text-sm text-center md:text-left">
               ❤️ Where Design Meets Code - Shamroz
             </p>
           </div>

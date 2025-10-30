@@ -7,8 +7,8 @@ const skills = [
     icon: 'logos:react',
     title: 'React.js',
     description: 'Building dynamic, component-based user interfaces with reusable logic.',
-    gradient: 'from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20',
-    iconColor: 'text-blue-600 dark:text-blue-400',
+    gradient: 'from-blue-50 to-blue-100',
+    iconColor: 'text-blue-600',
     bubbleColor: 'from-[#2684FC]/20 to-[#4A90E2]/20',
     bubbles: [{ position: 'bottom-left', size: 'w-4 h-4', animation: 'animate-pulse' }]
   },
@@ -16,8 +16,8 @@ const skills = [
     icon: 'logos:nextjs-icon',
     title: 'Next.js',
     description: 'Creating SEO-friendly, server-side rendered applications for optimal performance.',
-    gradient: 'from-gray-50 to-gray-200 dark:from-gray-900/20 dark:to-gray-800/20',
-    iconColor: 'text-black dark:text-white',
+    gradient: 'from-gray-50 to-gray-200',
+    iconColor: 'text-black',
     bubbleColor: 'from-[#000000]/20 to-[#4A90E2]/20',
     bubbles: [
       { position: 'top-left', size: 'w-3 h-3', animation: 'animate-bounce' },
@@ -28,8 +28,8 @@ const skills = [
     icon: 'mdi:robot',
     title: 'No-Code AI Tools',
     description: 'Leveraging AI platforms to build intelligent applications without coding.',
-    gradient: 'from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20',
-    iconColor: 'text-purple-600 dark:text-purple-400',
+    gradient: 'from-purple-50 to-purple-100',
+    iconColor: 'text-purple-600',
     bubbleColor: 'from-[#8e2de2]/20 to-[#4a00e0]/20',
     bubbles: [{ position: 'top-right', size: 'w-4 h-4', animation: 'animate-bounce delay-500' }]
   },
@@ -37,8 +37,8 @@ const skills = [
     icon: 'akar-icons:github-fill',
     title: 'GitHub',
     description: 'Version control and collaborative development for modern projects.',
-    gradient: 'from-gray-50 to-gray-100 dark:from-gray-900/20 dark:to-gray-800/20',
-    iconColor: 'text-gray-800 dark:text-white',
+    gradient: 'from-gray-50 to-gray-100',
+    iconColor: 'text-gray-800',
     bubbleColor: 'from-[#333]/20 to-[#6e5494]/20',
     bubbles: [{ position: 'top-right', size: 'w-4 h-4', animation: 'animate-pulse delay-200' }]
   },
@@ -46,8 +46,8 @@ const skills = [
     icon: 'logos:tailwindcss-icon',
     title: 'Tailwind & Bootstrap',
     description: 'Creating responsive, mobile-first, and modern UI designs efficiently.',
-    gradient: 'from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20',
-    iconColor: 'text-indigo-600 dark:text-indigo-400',
+    gradient: 'from-indigo-50 to-indigo-100',
+    iconColor: 'text-indigo-600',
     bubbleColor: 'from-[#4c51bf]/20 to-[#667eea]/20',
     bubbles: [{ position: 'bottom-right', size: 'w-3 h-3', animation: 'animate-bounce delay-700' }]
   },
@@ -55,8 +55,8 @@ const skills = [
     icon: 'mdi:api',
     title: 'RESTful APIs',
     description: 'Integrating and optimizing APIs for smooth data flow between frontend and backend.',
-    gradient: 'from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20',
-    iconColor: 'text-red-600 dark:text-red-400',
+    gradient: 'from-red-50 to-red-100',
+    iconColor: 'text-red-600',
     bubbleColor: 'from-[#e53e3e]/20 to-[#f56565]/20',
     bubbles: [
       { position: 'top-right', size: 'w-3 h-3', animation: 'animate-pulse delay-600' },
@@ -67,16 +67,16 @@ const skills = [
 
 export default function MySkills() {
   return (
-    <section id="skills" className="py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
+    <section id="skills" className="py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-gray-100">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
             Frontend Skills That Power
             <span className="block bg-gradient-to-r from-[#2684FC] to-[#4A90E2] bg-clip-text text-transparent">
               Every Project
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed px-4">
             Skilled in modern tools and frameworks to craft dynamic, scalable, and elegant user interfaces.
           </p>
         </div>
@@ -85,7 +85,7 @@ export default function MySkills() {
           {skills.map((skill, index) => (
             <div 
               key={index}
-              className="relative group p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className="relative group p-6 lg:p-8 rounded-2xl lg:rounded-3xl bg-white border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
               {/* Dynamic Floating Bubbles */}
               {skill.bubbles.map((bubble, bubbleIndex) => {
@@ -107,11 +107,11 @@ export default function MySkills() {
                 <Icon icon={skill.icon} className={`w-full h-full ${skill.iconColor}`} />
               </div>
               
-              <h3 className="text-lg lg:text-xl font-bold text-gray-900 dark:text-white mb-3 lg:mb-4">
+              <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-3 lg:mb-4">
                 {skill.title}
               </h3>
               
-              <p className="text-sm lg:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-sm lg:text-base text-gray-700 leading-relaxed">
                 {skill.description}
               </p>
             </div>

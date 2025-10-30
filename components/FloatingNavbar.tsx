@@ -1,15 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Calendar, Users, Building, Moon, Sun, Menu, X } from "lucide-react";
+import { Calendar, Users, Building, Menu, X } from "lucide-react";
 
 export default function FloatingNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,8 +22,8 @@ export default function FloatingNavbar() {
       <nav
         className={`fixed top-3 sm:top-6 left-1/2 transform -translate-x-1/2 z-20 transition-all duration-300 backdrop-blur-xl ${
           isScrolled
-            ? "bg-white/95 dark:bg-gray-700/70 border-gray-200/30 dark:border-gray-500/40"
-            : "bg-white/90 dark:bg-gray-700/60 border-gray-200/20 dark:border-gray-500/30"
+            ? "bg-white/95 border-gray-200/30"
+            : "bg-white/90 border-gray-200/20"
         } rounded-xl sm:rounded-2xl border shadow-2xl px-3 sm:px-6 py-2 sm:py-3 w-[95%] md:w-[70%]  ${
           isMobileMenuOpen ? "md:block hidden" : "block"
         }`}
@@ -36,7 +34,7 @@ export default function FloatingNavbar() {
             className="flex items-center space-x-2"
             data-home-link="true"
           >
-            <span className="font-bold text-lg sm:text-xl text-gray-800 dark:text-white">
+            <span className="font-bold text-md sm:text-xl text-gray-800">
               Shamroz Khan
             </span>
           </Link>
@@ -45,31 +43,31 @@ export default function FloatingNavbar() {
           <div className="hidden md:flex items-center space-x-1">
             <Link
               href="/#skills"
-              className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
+              className="text-sm text-gray-600 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
             >
               Skills
             </Link>
             <Link
               href="/#projects"
-              className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
+              className="text-sm text-gray-600 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
             >
               Projects
             </Link>
             <Link
               href="/#journey"
-              className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
+              className="text-sm text-gray-600 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
             >
               Journey
             </Link>
             <Link
               href="/#testimonials"
-              className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
+              className="text-sm text-gray-600 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
             >
               Testimonials
             </Link>
             <Link
               href="/#faq"
-              className="text-sm text-gray-600 dark:text-gray-300 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
+              className="text-sm text-gray-600 hover:text-[#2684FC] transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
             >
               FAQ
             </Link>
@@ -79,7 +77,7 @@ export default function FloatingNavbar() {
           <div className="hidden md:flex items-center space-x-3">
             <Link
               href="/#contact"
-              className="text-gray-600 dark:text-gray-300 hover:text-[#2684FC] dark:hover:text-blue-400 transition-colors duration-300 cursor-pointer text-sm font-medium"
+              className="text-gray-600 hover:text-[#2684FC] transition-colors duration-300 cursor-pointer text-sm font-medium"
             >
               GET IN TOUCH
             </Link>
@@ -90,7 +88,7 @@ export default function FloatingNavbar() {
               className="w-10 h-10 lg:w-12 lg:h-12  flex items-center justify-center transition-all duration-300 hover:scale-110"
             >
               <svg
-                className="w-5 h-5 lg:w-6 lg:h-6 text-[#0077B5] group-hover:text-[#2684FC] transition-colors"
+                className="w-5 h-5 lg:w-6 lg:h-6 text-[#0077B5] hover:text-[#2684FC] transition-colors"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -108,7 +106,7 @@ export default function FloatingNavbar() {
               className="w-10 h-10 lg:w-12 lg:h-12  flex items-center justify-center transition-all duration-300 hover:scale-110"
             >
               <svg
-                className="w-5 h-5 lg:w-6 lg:h-6 text-[#0077B5] group-hover:text-[#2684FC] transition-colors"
+                className="w-5 h-5 lg:w-6 lg:h-6 text-[#0077B5] hover:text-[#2684FC] transition-colors"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -136,18 +134,18 @@ export default function FloatingNavbar() {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-30 md:hidden">
           <div
-            className="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setIsMobileMenuOpen(false)}
           />
-          <div className="fixed top-3 left-1/2 transform -translate-x-1/2 w-[95%] max-w-md bg-white/95 dark:bg-gray-700/80 backdrop-blur-xl rounded-xl border border-gray-200/40 dark:border-gray-500/50 shadow-2xl">
+          <div className="fixed top-3 left-1/2 transform -translate-x-1/2 w-[95%] max-w-md bg-white/95 backdrop-blur-xl rounded-xl border border-gray-200/40 shadow-2xl">
             {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between p-4 border-b border-gray-200/40 dark:border-gray-500/50">
+            <div className="flex items-center justify-between p-4 border-b border-gray-200/40">
               <Link
                 href="/"
                 className="flex items-center space-x-2"
                 data-home-link="true"
               >
-                <span className="font-bold text-lg text-gray-800 dark:text-white">
+                <span className="font-bold text-lg text-gray-800">
                   Shamroz Khan
                 </span>
               </Link>
@@ -166,42 +164,42 @@ export default function FloatingNavbar() {
               <div className="space-y-2 ">
                 <Link
                   href="/#skills"
-                  className="block text-gray-700 dark:text-gray-200 hover:text-[#2684FC] dark:hover:text-[#4CA6EA] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-gray-800/70"
+                  className="block text-gray-700 hover:text-[#2684FC] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Skills
                 </Link>
                 <Link
                   href="/#projects"
-                  className="block text-gray-700 dark:text-gray-200 hover:text-[#2684FC] dark:hover:text-[#4CA6EA] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-gray-800/70"
+                  className="block text-gray-700 hover:text-[#2684FC] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Projects
                 </Link>
                 <Link
                   href="/#journey"
-                  className="block text-gray-700 dark:text-gray-200 hover:text-[#2684FC] dark:hover:text-[#4CA6EA] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-gray-800/70"
+                  className="block text-gray-700 hover:text-[#2684FC] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Journey
                 </Link>
                 <Link
                   href="/#testimonials"
-                  className="block text-gray-700 dark:text-gray-200 hover:text-[#2684FC] dark:hover:text-[#4CA6EA] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-gray-800/70"
+                  className="block text-gray-700 hover:text-[#2684FC] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Testimonials
                 </Link>
                 <Link
                   href="/#faq"
-                  className="block text-gray-700 dark:text-gray-200 hover:text-[#2684FC] dark:hover:text-[#4CA6EA] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-gray-800/70"
+                  className="block text-gray-700 hover:text-[#2684FC] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   FAQ
                 </Link>
                 <Link
                   href="/#contact"
-                  className="block text-gray-700 dark:text-gray-200 hover:text-[#2684FC] dark:hover:text-[#4CA6EA] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70 dark:hover:bg-gray-800/70"
+                  className="block text-gray-700 hover:text-[#2684FC] transition-colors py-3 px-2 rounded-lg hover:bg-gray-100/70"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact
@@ -212,12 +210,11 @@ export default function FloatingNavbar() {
             {/* Bottom Buttons */}
             <div className="p-4">
               <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full text-white rounded-lg py-2 text-sm hover:bg-gray-700 transition-colors duration-300">
+                <Button className="w-full text-white rounded-lg py-2 text-sm transition-colors duration-300">
                   Get in Touch
                 </Button>
               </Link>
             </div>
-
           </div>
         </div>
       )}

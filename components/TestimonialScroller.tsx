@@ -112,21 +112,21 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
     <div
       className="
         relative rounded-xl p-5 flex flex-col shadow-lg
-        bg-gray-50 dark:bg-gray-800
-        border border-gray-200 dark:border-gray-700
+        bg-gray-50
+        border border-gray-200
         backdrop-blur-md
       "
       style={{ width: "100%", height: "100%" }}
     >
       {/* Quote Icon */}
-      <div className="absolute top-1 right-1 text-gray-200 dark:text-gray-700">
+      <div className="absolute top-1 right-1 text-gray-200">
         <QuoteIcon className="w-14 h-14" />
       </div>
 
       {/* Top: Profile & Stars */}
       <div className="flex items-center space-x-3 mb-4">
         <div className="flex flex-col">
-          <h3 className="font-bold text-gray-900 dark:text-gray-50 text-md">
+          <h3 className="font-bold text-gray-900 text-md">
             {testimonial.name}
           </h3>
 
@@ -138,7 +138,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
                 className={
                   i < testimonial.stars
                     ? "text-yellow-400" // filled
-                    : "text-gray-400 dark:text-gray-600" // hollow
+                    : "text-gray-400" // hollow
                 }
               >
                 {i < testimonial.stars ? "★" : "☆"}
@@ -150,7 +150,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 
       {/* Middle: Fixed height description */}
       <div
-        className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed italic"
+        className="text-sm text-gray-700 leading-relaxed italic"
         style={{
           display: "-webkit-box",
           WebkitLineClamp: 4,
@@ -376,13 +376,13 @@ export default function TestimonialScroller() {
       ref={containerRef}
     >
       <div className="text-center mb-12 px-4">
-        <h2 className="flex items-center justify-center gap-2 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        <h2 className="flex items-center justify-center gap-2 text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Love from
           <span className="block bg-gradient-to-r from-[#2684FC] to-[#4A90E2] bg-clip-text text-transparent">
            Clients
           </span>
         </h2>
-        <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
           Here’s what my clients honestly think about working with me — their
           experiences, feedback, and a few kind words that keep me motivated to
           keep building better every day.

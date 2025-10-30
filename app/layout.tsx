@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
 import RouteChangeHandler from "./RouteChangeHandler";
 import FloatingNavbar from "@/components/FloatingNavbar";
 import Footer from "@/components/Footer";
@@ -27,17 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <RouteChangeHandler />
-          <FloatingNavbar />
-          <main className="relative min-h-screen">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <RouteChangeHandler />
+        <FloatingNavbar />
+        <main className="relative min-h-screen">{children}</main>
+        <Footer />
       </body>
     </html>
   );

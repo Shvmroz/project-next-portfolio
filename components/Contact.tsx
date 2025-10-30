@@ -29,19 +29,19 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-16 lg:py-24 bg-gradient-to-b from-blue-50 to-blue-100 dark:from-gray-900 dark:to-blue-950 overflow-hidden"
+      className="relative py-16 lg:py-24 bg-gradient-to-b from-blue-50 to-blue-100 overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">
             Get in{" "}
             <span className="bg-gradient-to-r from-[#2684FC] to-[#4A90E2] bg-clip-text text-transparent">
               Touch
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Ready to elevate your digital presence? Let’s connect and build
+          <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
+            Ready to elevate your digital presence? Let's connect and build
             something remarkable together — clean, fast, and user-focused.
           </p>
         </div>
@@ -51,12 +51,12 @@ export default function Contact() {
           {/* Left Side: Info */}
           <div className="hidden md:block space-y-8 ">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Let’s Start a Conversation
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Let's Start a Conversation
               </h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed max-w-lg">
+              <p className="text-gray-700 leading-relaxed max-w-lg">
                 Whether you need a modern portfolio, a responsive business site,
-                or a custom React/Next.js project — I’d love to help bring your
+                or a custom React/Next.js project — I'd love to help bring your
                 ideas to life with a clean, efficient, and visually appealing
                 design.
               </p>
@@ -77,10 +77,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-gray-900 dark:text-white">
+                  <h4 className="text-base font-semibold text-gray-900">
                     WhatsApp
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600">
                     +92 306 6520002
                   </p>
                 </div>
@@ -100,10 +100,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-gray-900 dark:text-white">
+                  <h4 className="text-base font-semibold text-gray-900">
                     LinkedIn
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600">
                     Shamroz Khan
                   </p>
                 </div>
@@ -120,10 +120,10 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-gray-900 dark:text-white">
+                  <h4 className="text-base font-semibold text-gray-900">
                     Email
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600">
                     shvmroz@gmail.com
                   </p>
                 </div>
@@ -134,12 +134,12 @@ export default function Contact() {
           </div>
 
           {/* Right Side: Form */}
-          <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 p-6 sm:p-8 lg:p-10">
+          <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-6 sm:p-8 lg:p-10">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
                 <Label
                   htmlFor="name"
-                  className="text-gray-800 dark:text-gray-200 font-medium"
+                  className="text-gray-800 font-medium"
                 >
                   Full Name
                 </Label>
@@ -150,14 +150,14 @@ export default function Contact() {
                   onChange={(e) => updateFormData("name", e.target.value)}
                   required
                   placeholder="Enter your full name"
-                  className="mt-2 dark:bg-gray-700 dark:border-gray-600 rounded-xl border-2 focus:border-[#2684FC] transition-colors"
+                  className="mt-2 rounded-xl border-2 focus:border-[#2684FC] transition-colors"
                 />
               </div>
 
               <div>
                 <Label
                   htmlFor="email"
-                  className="text-gray-800 dark:text-gray-200 font-medium"
+                  className="text-gray-800 font-medium"
                 >
                   Email Address
                 </Label>
@@ -168,14 +168,14 @@ export default function Contact() {
                   onChange={(e) => updateFormData("email", e.target.value)}
                   required
                   placeholder="Enter your email"
-                  className="mt-2 dark:bg-gray-700 dark:border-gray-600 rounded-xl border-2 focus:border-[#2684FC] transition-colors"
+                  className="mt-2 rounded-xl border-2 focus:border-[#2684FC] transition-colors"
                 />
               </div>
 
               <div>
                 <Label
                   htmlFor="subject"
-                  className="text-gray-800 dark:text-gray-200 font-medium"
+                  className="text-gray-800 font-medium"
                 >
                   Subject
                 </Label>
@@ -186,14 +186,14 @@ export default function Contact() {
                   onChange={(e) => updateFormData("subject", e.target.value)}
                   required
                   placeholder="What's this about?"
-                  className="mt-2 dark:bg-gray-700 dark:border-gray-600 rounded-xl border-2 focus:border-[#2684FC] transition-colors"
+                  className="mt-2 rounded-xl border-2 focus:border-[#2684FC] transition-colors"
                 />
               </div>
 
               <div>
                 <Label
                   htmlFor="message"
-                  className="text-gray-800 dark:text-gray-200 font-medium"
+                  className="text-gray-800 font-medium"
                 >
                   Message
                 </Label>
@@ -204,7 +204,7 @@ export default function Contact() {
                   required
                   rows={4}
                   placeholder="Tell me about your project..."
-                  className="mt-2 dark:bg-gray-700 dark:border-gray-600 rounded-xl border-2 focus:border-[#2684FC] transition-colors"
+                  className="mt-2 rounded-xl border-2 focus:border-[#2684FC] transition-colors"
                 />
               </div>
 

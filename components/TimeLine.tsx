@@ -51,13 +51,13 @@ export default function TimeLine() {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Title */}
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Growth &
             <span className="bg-gradient-to-r from-[#2684FC] to-[#4A90E2] bg-clip-text text-transparent ml-3">
               Learning Journey
             </span>
           </h2>
-          <p className="text-sm text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-sm text-gray-700 max-w-2xl mx-auto">
             A journey of learning, projects, and milestones in my development
             career.
           </p>
@@ -82,10 +82,10 @@ export default function TimeLine() {
                     >
                       {isLeft && (
                         <div className="inline-block border rounded-xl p-2 px-4 shadow-md text-start  bg-gradient-to-l from-gray-50 to-yellow-50/50">
-                          <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">
+                          <h3 className="text-sm sm:text-base font-bold text-gray-900">
                             {item.type === "study" ? item.degree : item.title}
                           </h3>
-                          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                          <p className="text-xs sm:text-sm text-gray-600">
                             {item.type === "study"
                               ? item.institution
                               : item.description}
@@ -98,7 +98,7 @@ export default function TimeLine() {
                     </div>
 
                     {/* Center Dot */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"></div>
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg z-10"></div>
 
                     {/* Right Side Content */}
                     <div
@@ -106,10 +106,10 @@ export default function TimeLine() {
                     >
                       {!isLeft && (
                         <div className="inline-block rounded-xl p-2 px-4 shadow-md bg-gradient-to-r from-gray-50 to-blue-50/50">
-                          <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">
+                          <h3 className="text-sm sm:text-base font-bold text-gray-900">
                             {item.type === "study" ? item.degree : item.title}
                           </h3>
-                          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                          <p className="text-xs sm:text-sm text-gray-600">
                             {item.type === "study"
                               ? item.institution
                               : item.description}
