@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { QuoteIcon, User } from "lucide-react";
+import { Quote as QuoteIcon, User } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 interface Testimonial {
