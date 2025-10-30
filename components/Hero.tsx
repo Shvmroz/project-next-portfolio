@@ -9,6 +9,8 @@ import {
   Zap,
 } from "lucide-react";
 import AnimatedCounter from "./AnimatedCounter";
+import { Icon } from "@iconify/react";
+
 
 // Unified data for projects + skills
 const portfolioHistory = [
