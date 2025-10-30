@@ -103,25 +103,24 @@ function EventCard({
   event: (typeof portfolioHistory)[0];
   index: number;
 }) {
-  const iconColors = [
-    "text-slate-500",
-    "text-sky-500",
-    "text-teal-500",
-    "text-indigo-600",
-    "text-blue-500",
-    "text-sky-800",
+  // New vibrant icon background palette
+  const iconBgColors = [
+    "bg-gradient-to-br from-sky-100 to-sky-300 text-sky-700",
+    "bg-gradient-to-br from-teal-100 to-teal-300 text-teal-700",
+    "bg-gradient-to-br from-indigo-100 to-indigo-300 text-indigo-700",
+    "bg-gradient-to-br from-blue-100 to-blue-300 text-blue-700",
+    "bg-gradient-to-br from-emerald-100 to-emerald-300 text-emerald-700",
+    "bg-gradient-to-br from-fuchsia-100 to-fuchsia-300 text-fuchsia-700",
   ];
-  const iconColor =
-    iconColors[index % iconColors.length] + " dark:text-gray-400";
 
-  // Iconify icon mapping (projects + skills)
+  const iconStyle =
+    iconBgColors[index % iconBgColors.length] + " dark:text-gray-300";
+
+  // Iconify mapping
   const iconMap: Record<string, string> = {
-    // --- Projects ---
     "Portfolio Website": "devicon:nextjs",
     "Event Management No-Code AI": "mdi:robot-excited-outline",
     "CRM System for Farmers": "mdi:database-cog-outline",
-
-    // --- Skills ---
     "React.js": "logos:react",
     "Next.js": "devicon:nextjs",
     "GitHub": "mdi:github",
@@ -132,24 +131,24 @@ function EventCard({
     "Bootstrap": "logos:bootstrap",
   };
 
-  // fallback if not found
   const iconName = iconMap[event.title] || "mdi:briefcase-outline";
 
   return (
     <div className="relative rounded-xl border border-gray-200 shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-25 to-sky-100 opacity-80" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white to-sky-50 opacity-90" />
 
       <div className="relative flex items-start gap-4 p-4">
-        <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white/80 flex items-center justify-center shadow-md">
+        {/* Icon */}
+        <div
+          className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl flex items-center justify-center shadow-sm ${iconStyle}`}
+        >
           <Icon
             icon={iconName}
-            className={`w-8 h-8 md:w-10 md:h-10 ${iconColor.replace(
-              " dark:text-gray-400",
-              ""
-            )}`}
+            className="w-8 h-8 md:w-10 md:h-10 opacity-90"
           />
         </div>
 
+        {/* Content */}
         <div className="flex-1 min-w-0">
           <div className="flex justify-between items-center mb-2">
             <h3 className="text-sm sm:text-base font-semibold text-gray-900 leading-tight truncate">
@@ -181,6 +180,7 @@ function EventCard({
     </div>
   );
 }
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-100 overflow-hidden pt-24 sm:pt-32 pb-16 md:pb-0">
