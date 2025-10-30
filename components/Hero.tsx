@@ -169,7 +169,6 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 h-full">
           {/* Left Side - Text Content */}
           <div className="text-center lg:text-left space-y-4 lg:space-y-8 px-6 lg:px-12  sm:pt-6 md:pt-16">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
               Crafting Seamless
               <span className="block bg-gradient-to-r from-[#2684FC] to-[#4A90E2] bg-clip-text text-transparent">
