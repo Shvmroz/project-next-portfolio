@@ -21,7 +21,6 @@ const portfolioHistory = [
     date: "2025",
     type: "Project",
     success: "Live",
-    icon: Zap,
   },
   {
     title: "Event Management No-Code AI",
@@ -29,7 +28,6 @@ const portfolioHistory = [
     date: "2024",
     type: "Project",
     success: "Completed",
-    icon: Calendar,
   },
   {
     title: "CRM System for Farmers",
@@ -37,7 +35,6 @@ const portfolioHistory = [
     date: "2024",
     type: "Project",
     success: "Ongoing",
-    icon: Users,
   },
 
   // Skills
@@ -47,7 +44,6 @@ const portfolioHistory = [
     date: "Expert",
     type: "Skill",
     success: "Used in 5+ projects",
-    icon: Zap,
   },
   {
     title: "Next.js",
@@ -55,7 +51,6 @@ const portfolioHistory = [
     date: "Advanced",
     type: "Skill",
     success: "Portfolio & Web Apps",
-    icon: Calendar,
   },
   {
     title: "GitHub",
@@ -63,7 +58,6 @@ const portfolioHistory = [
     date: "Advanced",
     type: "Skill",
     success: "Daily Use",
-    icon: TrendingUp,
   },
   {
     title: "No-Code AI",
@@ -71,7 +65,6 @@ const portfolioHistory = [
     date: "Intermediate",
     type: "Skill",
     success: "Automation Projects",
-    icon: Award,
   },
   {
     title: "Self-Learning",
@@ -79,7 +72,6 @@ const portfolioHistory = [
     date: "Ongoing",
     type: "Skill",
     success: "Personal Projects",
-    icon: Users,
   },
   {
     title: "Material UI",
@@ -87,7 +79,6 @@ const portfolioHistory = [
     date: "Advanced",
     type: "Skill",
     success: "Multiple Projects",
-    icon: Building,
   },
   {
     title: "Tailwind CSS",
@@ -95,7 +86,6 @@ const portfolioHistory = [
     date: "Advanced",
     type: "Skill",
     success: "Modern Styling",
-    icon: Zap,
   },
   {
     title: "Bootstrap",
@@ -103,7 +93,6 @@ const portfolioHistory = [
     date: "Intermediate",
     type: "Skill",
     success: "Responsive Layouts",
-    icon: Calendar,
   },
 ];
 
