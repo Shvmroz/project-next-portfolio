@@ -1,9 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import RouteChangeHandler from "./RouteChangeHandler";
 import FloatingNavbar from "@/components/FloatingNavbar";
 import Footer from "@/components/Footer";
+import { Inter } from "next/font/google";
+
 
 const inter = Inter({ subsets: ["latin"] });
 

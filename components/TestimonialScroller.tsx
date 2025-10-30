@@ -106,16 +106,27 @@ const testimonials: Testimonial[] = [
     reviewFrom: "freelancer",
   },
 ];
+const gradientClasses = [
+  "from-purple-50/20 to-blue-100/20",
+  "from-blue-50/20 to-teal-100/20",
+  "from-teal-50/20 to-green-100/20",
+  "from-green-50/20 to-yellow-100/20",
+  "from-yellow-50/20 to-orange-100/20",
+  "from-orange-50/20 to-pink-100/20",
+  "from-pink-50/20 to-purple-100/20",
+  "from-sky-50/20 to-indigo-100/20",
+  "from-indigo-50/20 to-purple-100/20",
+];
+
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <div
-      className="
-        relative rounded-xl p-5 flex flex-col shadow-lg
-        bg-gray-50
-        border border-gray-200
-        backdrop-blur-md
-      "
+    className={`
+      relative rounded-xl p-5 flex flex-col shadow-lg text-gray-800
+      border border-gray-100 backdrop-blur-md
+      bg-gradient-to-br ${gradientClasses[testimonial.id % gradientClasses.length]}
+    `}
       style={{ width: "100%", height: "100%" }}
     >
       {/* Quote Icon */}
@@ -372,7 +383,7 @@ export default function TestimonialScroller() {
   return (
     <div
       id="testimonials"
-      className="scrolling-grid pt-[80px] pb-[60px] bg-gradient-to-br from-gray-50 to-blue-100"
+      className="scrolling-grid pt-[80px] pb-[60px] bg-white"
       ref={containerRef}
     >
       <div className="text-center mb-12 px-4">

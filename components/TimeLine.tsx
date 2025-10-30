@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Icon } from "@iconify/react";
 
 type TimelineItem = {
   type: "study" | "work" | string;
@@ -47,8 +48,49 @@ const timeline: TimelineItem[] = [
 
 export default function TimeLine() {
   return (
-    <section id="journey" className="py-12 sm:py-16 bg-white">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section
+      id="journey"
+      className="relative py-12 sm:py-16 bg-blue-50 overflow-hidden"
+    >
+      {/* Floating Background Icons (only on sides) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Left side icons */}
+        <Icon
+          icon="logos:react"
+          className="absolute text-sky-400/10 text-[40px] top-2 left-[5%]
+        md:text-[50px] md:left-10"
+        />
+        <Icon
+          icon="vscode-icons:file-type-js-official"
+          className="absolute text-yellow-400/10 text-[30px] top-[40%] left-[18%] animate-float
+        md:text-[50px] md:left-[12%]"
+        />
+        <Icon
+          icon="devicon:materialui"
+          className="absolute text-blue-400/10 text-[40px] bottom-[20%] left-[14%] animate-float-reverse
+        md:text-[100px] md:left-10"
+        />
+
+        {/* Right side icons */}
+        <Icon
+          icon="devicon:vscode"
+          className="absolute text-indigo-400/10 text-[30px] top-10 right-[2%] animate-float-slow
+        md:text-[100px] md:right-10"
+        />
+        <Icon
+          icon="logos:nextjs-icon"
+          className="absolute text-gray-400/10 text-[35px] top-1/2 right-[16%] animate-float
+        md:text-[60px] md:right-[12%]"
+        />
+        <Icon
+          icon="logos:tailwindcss-icon"
+          className="absolute text-sky-300/10 text-[45px] bottom-12 right-[14%] animate-float-reverse
+        md:text-[100px] md:right-10"
+        />
+      </div>
+
+      {/* Main Content */}
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Title */}
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -63,7 +105,7 @@ export default function TimeLine() {
           </p>
         </div>
 
-        {/* Vertical Alternating Timeline */}
+        {/* Timeline */}
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Center Line */}
@@ -76,46 +118,42 @@ export default function TimeLine() {
 
                 return (
                   <div key={index} className="relative flex items-center">
-                    {/* Left Side Content */}
+                    {/* Left Side */}
                     <div
                       className={`w-1/2 ${isLeft ? "pr-8 text-right" : "pr-0"}`}
                     >
                       {isLeft && (
-                        <div className="inline-block border rounded-xl p-2 px-4 shadow-md text-start  bg-gradient-to-l from-gray-50 to-yellow-50/50">
+                        <div className="inline-block border rounded-xl p-2 px-4 shadow-md text-start bg-gradient-to-l from-gray-50/60 to-yellow-50/30 backdrop-blur-sm">
                           <h3 className="text-sm sm:text-base font-bold text-gray-900">
-                            {item.type === "study" ? item.degree : item.title}
+                            {item.degree}
                           </h3>
                           <p className="text-xs sm:text-sm text-gray-600">
-                            {item.type === "study"
-                              ? item.institution
-                              : item.description}
+                            {item.institution}
                           </p>
                           <p className="text-xs font-medium text-gray-400 mt-1">
-                            {item.type === "study" ? item.year : item.date}
+                            {item.year}
                           </p>
                         </div>
                       )}
                     </div>
 
-                    {/* Center Dot */}
+                    {/* Dot */}
                     <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg z-10"></div>
 
-                    {/* Right Side Content */}
+                    {/* Right Side */}
                     <div
                       className={`w-1/2 ${!isLeft ? "pl-8 text-left" : "pl-0"}`}
                     >
                       {!isLeft && (
-                        <div className="inline-block rounded-xl p-2 px-4 shadow-md bg-gradient-to-r from-gray-50 to-blue-50/50">
+                        <div className="inline-block rounded-xl p-2 px-4 shadow-md bg-gradient-to-r from-gray-50/60 to-blue-50/30 backdrop-blur-sm">
                           <h3 className="text-sm sm:text-base font-bold text-gray-900">
-                            {item.type === "study" ? item.degree : item.title}
+                            {item.degree}
                           </h3>
                           <p className="text-xs sm:text-sm text-gray-600">
-                            {item.type === "study"
-                              ? item.institution
-                              : item.description}
+                            {item.institution}
                           </p>
                           <p className="text-xs font-medium text-gray-400 mt-1">
-                            {item.type === "study" ? item.year : item.date}
+                            {item.year}
                           </p>
                         </div>
                       )}
@@ -127,6 +165,66 @@ export default function TimeLine() {
           </div>
         </div>
       </div>
+
+      {/* bounce Animations */}
+      <style jsx global>{`
+        @keyframes float-bounce {
+          0% {
+            transform: translateY(0) scale(1) rotate(0deg);
+          }
+          25% {
+            transform: translateY(-12px) scale(1.03) rotate(2deg);
+          }
+          50% {
+            transform: translateY(-20px) scale(0.98) rotate(-2deg);
+          }
+          75% {
+            transform: translateY(-8px) scale(1.02) rotate(1deg);
+          }
+          100% {
+            transform: translateY(0) scale(1) rotate(0deg);
+          }
+        }
+
+        @keyframes float-slow-bounce {
+          0% {
+            transform: translateY(0) scale(1) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-18px) scale(1.05) rotate(-3deg);
+          }
+          100% {
+            transform: translateY(0) scale(1) rotate(0deg);
+          }
+        }
+
+        @keyframes float-reverse-bounce {
+          0% {
+            transform: translateY(0) scale(1) rotate(0deg);
+          }
+          50% {
+            transform: translateY(15px) scale(1.04) rotate(3deg);
+          }
+          100% {
+            transform: translateY(0) scale(1) rotate(0deg);
+          }
+        }
+
+        .animate-float {
+          animation: float-bounce 6s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+            infinite;
+        }
+
+        .animate-float-slow {
+          animation: float-slow-bounce 8s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+            infinite;
+        }
+
+        .animate-float-reverse {
+          animation: float-reverse-bounce 7s
+            cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+        }
+      `}</style>
     </section>
   );
 }
