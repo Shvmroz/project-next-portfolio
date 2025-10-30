@@ -5,7 +5,6 @@ interface Project {
   title: string;
   description: string;
   color: string;
-  darkColor: string;
   rotate: string;
   hoverRotate: string;
   link: string;
@@ -17,7 +16,6 @@ const projects: Project[] = [
     title: "Portfolio Website",
     description: "Personal portfolio built with React, Tailwind, and Next.js",
     color: "bg-orange-200",
-    darkColor: "dark:bg-orange-900",
     rotate: "-rotate-3",
     hoverRotate: "hover:rotate-0",
     link: "https://www.linkedin.com/in/shvmroz",
@@ -27,7 +25,6 @@ const projects: Project[] = [
     title: "E-commerce Store",
     description: "React + Redux store with Stripe payment integration",
     color: "bg-green-200",
-    darkColor: "dark:bg-green-900",
     rotate: "rotate-6",
     hoverRotate: "hover:rotate-0",
     link: "https://www.linkedin.com/in/shvmroz",
@@ -37,7 +34,6 @@ const projects: Project[] = [
     title: "Task Manager App",
     description: "Full-stack MERN task manager with JWT authentication",
     color: "bg-rose-200",
-    darkColor: "dark:bg-rose-900",
     rotate: "-rotate-3",
     hoverRotate: "hover:rotate-0",
     link: "https://www.linkedin.com/in/shvmroz",
@@ -47,7 +43,6 @@ const projects: Project[] = [
     title: "Blog Platform",
     description: "Next.js blog with Markdown support and CMS integration",
     color: "bg-teal-200",
-    darkColor: "dark:bg-teal-950",
     rotate: "rotate-6",
     hoverRotate: "hover:rotate-0",
     link: "https://www.linkedin.com/in/shvmroz",
@@ -57,7 +52,6 @@ const projects: Project[] = [
     title: "Chat App",
     description: "Real-time chat app with Socket.io and React",
     color: "bg-indigo-200",
-    darkColor: "dark:bg-indigo-950",
     rotate: "-rotate-6",
     hoverRotate: "hover:rotate-0",
     link: "https://www.linkedin.com/in/shvmroz",
@@ -67,7 +61,6 @@ const projects: Project[] = [
     title: "Weather Dashboard",
     description: "Weather forecast app using React and OpenWeather API",
     color: "bg-violet-200",
-    darkColor: "dark:bg-violet-950",
     rotate: "rotate-3",
     hoverRotate: "hover:rotate-0",
     link: "https://www.linkedin.com/in/shvmroz",
@@ -77,7 +70,6 @@ const projects: Project[] = [
     title: "Movie App",
     description: "Movie search and rating app using TMDB API",
     color: "bg-amber-200",
-    darkColor: "dark:bg-amber-900",
     rotate: "-rotate-6",
     hoverRotate: "hover:rotate-0",
     link: "https://www.linkedin.com/in/shvmroz",
@@ -87,7 +79,6 @@ const projects: Project[] = [
     title: "Fitness Tracker",
     description: "Track workouts, calories, and goals with React & Node.js",
     color: "bg-blue-200",
-    darkColor: "dark:bg-blue-950",
     rotate: "rotate-6",
     hoverRotate: "hover:rotate-0",
     link: "https://www.linkedin.com/in/shvmroz",
@@ -97,7 +88,6 @@ const projects: Project[] = [
     title: "Recipe Finder",
     description: "Search and save recipes using a public recipe API",
     color: "bg-lime-200",
-    darkColor: "dark:bg-lime-950",
     rotate: "-rotate-3",
     hoverRotate: "hover:rotate-0",
     link: "https://www.linkedin.com/in/shvmroz",
@@ -107,7 +97,6 @@ const projects: Project[] = [
     title: "Expense Tracker",
     description: "Track your expenses and budget with React & localStorage",
     color: "bg-orange-200",
-    darkColor: "dark:bg-orange-950",
     rotate: "rotate-6",
     hoverRotate: "hover:rotate-0",
     link: "https://www.linkedin.com/in/shvmroz",
@@ -172,7 +161,7 @@ const FeatureNotes: React.FC = () => {
               shadow-[0_4px_8px_rgba(0,0,0,0.15),0_8px_16px_rgba(0,0,0,0.1)]
               text-gray-800 font-medium
               transition-all duration-300 ease-out transform
-              ${project.color} ${project.darkColor} ${project.rotate} ${
+              ${project.color} ${project.rotate} ${
                 project.hoverRotate
               }
               hover:-translate-y-2 hover:scale-105 hover:z-10
