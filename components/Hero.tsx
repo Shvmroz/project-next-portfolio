@@ -159,77 +159,59 @@ const portfolioHistory = [
 //     </div>
 //   );
 // }
-
- function EventCard({
-  event,
-  index,
-}: {
-  event: Event;
-  index: number;
-}) {
-  const fallbackIcons = [
-    "logos:react",
-    "logos:nodejs-icon",
-    "logos:tailwindcss-icon",
-    "logos:mongodb-icon",
-    "logos:typescript-icon",
-    "logos:nextjs-icon",
-  ];
-
-  const iconName = event.icon || fallbackIcons[index % fallbackIcons.length];
-
-  const gradients = [
-    "from-blue-50 to-blue-100",
-    "from-teal-50 to-teal-100",
-    "from-indigo-50 to-indigo-100",
-    "from-sky-50 to-sky-100",
-    "from-cyan-50 to-cyan-100",
-    "from-emerald-50 to-emerald-100",
-  ];
-  const gradient = gradients[index % gradients.length];
-
-  const iconShades = [
-    "text-blue-500",
-    "text-teal-500",
-    "text-indigo-500",
+function EventCard({ event, index }: { event: (typeof portfolioHistory)[0]; index: number }) {
+  const iconColors = [
+    "text-slate-500",
     "text-sky-500",
-    "text-cyan-600",
-    "text-emerald-600",
+    "text-teal-500",
+    "text-indigo-600",
+    "text-blue-500",
+    "text-sky-800",
   ];
-  const iconColor = iconShades[index % iconShades.length];
+  const iconColor = iconColors[index % iconColors.length] + " dark:text-gray-400";
+
+  // Example icon names (you can customize per event)
+  const eventIcons: Record<string, string> = {
+    meeting: "mdi:account-group",
+    presentation: "mdi:presentation",
+    success: "mdi:check-decagram",
+    project: "mdi:briefcase-outline",
+    default: "mdi:calendar",
+  };
+
+  // pick an icon based on event type or fallback
+  const iconName = eventIcons[event.type?.toLowerCase()] || eventIcons.default;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-white/90 backdrop-blur-sm">
-      {/* Background Gradient */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-60`} />
+    <div className="relative rounded-xl border border-gray-200 shadow-md overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-25 to-sky-100 opacity-80" />
 
-      <div className="relative flex items-center gap-4 p-5">
-        {/* Icon Container */}
-        <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white shadow-md flex items-center justify-center">
-          <Icon icon={iconName} className={`w-10 h-10 ${iconColor}`} />
+      <div className="relative flex items-start gap-4 p-4">
+        <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white/80 flex items-center justify-center shadow-md">
+          <Icon
+            icon={iconName}
+            className={`w-8 h-8 md:w-10 md:h-10 ${iconColor.replace(" dark:text-gray-400", "")}`}
+          />
         </div>
 
-        {/* Details */}
         <div className="flex-1 min-w-0">
-          <div className="flex justify-between items-start mb-1">
-            <h3 className="text-base font-semibold text-gray-900 truncate">
+          <div className="flex justify-between items-center mb-2">
+            <h3 className="text-sm sm:text-base font-semibold text-gray-900 leading-tight truncate">
               {event.title}
             </h3>
-            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-white/80 text-gray-700 shadow-sm border border-gray-100">
+            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-white/70 text-gray-700 shadow-sm">
               {event.type}
             </span>
           </div>
 
-          <div className="text-sm text-gray-600 flex flex-col gap-1">
+          <div className="gap-x-4 gap-y-1 text-xs sm:text-sm">
             <div className="flex justify-between">
-              <span className="truncate">{event.attendees}</span>
-              <span className="text-gray-800 font-medium">{event.date}</span>
+              <span className="text-gray-500 text-xs sm:text-sm">{event.attendees}</span>
+              <span className="font-medium text-gray-800 text-xs sm:text-sm">{event.date}</span>
             </div>
 
             <div className="flex justify-end">
-              <span className="font-semibold text-green-600">
-                {event.success}
-              </span>
+              <span className="font-medium text-green-600 text-xs sm:text-sm">{event.success}</span>
             </div>
           </div>
         </div>
@@ -237,7 +219,6 @@ const portfolioHistory = [
     </div>
   );
 }
-
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-100 overflow-hidden pt-24 sm:pt-32 pb-16 md:pb-0">
