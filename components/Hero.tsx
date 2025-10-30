@@ -9,6 +9,7 @@ import {
   Zap,
 } from "lucide-react";
 import AnimatedCounter from "./AnimatedCounter";
+import { Icon } from "@iconify/react";
 
 // Unified data for projects + skills
 const portfolioHistory = [
@@ -105,50 +106,128 @@ const portfolioHistory = [
   },
 ];
 
-function EventCard({ event, index }: { event: (typeof portfolioHistory)[0]; index: number; }) {
-  const IconComponent = event.icon;
+// function EventCard({ event, index }: { event: (typeof portfolioHistory)[0]; index: number; }) {
+//   const IconComponent = event.icon;
 
-  const iconColors = [
-    "text-slate-500",
-    "text-sky-500",
-    "text-teal-500",
-    "text-indigo-600",
-    "text-blue-500",
-    "text-sky-800",
+//   const iconColors = [
+//     "text-slate-500",
+//     "text-sky-500",
+//     "text-teal-500",
+//     "text-indigo-600",
+//     "text-blue-500",
+//     "text-sky-800",
+//   ];
+//   const iconColor = iconColors[index % iconColors.length] + " dark:text-gray-400";
+
+//   return (
+//     <div  className="relative rounded-xl border border-gray-200 shadow-md overflow-hidden">
+//       <div className="absolute inset-0 bg-gradient-to-br from-sky-25 to-sky-100 opacity-80" />
+
+//       <div className="relative flex items-start gap-4 p-4">
+//         <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white/80 flex items-center justify-center shadow-md">
+//           <IconComponent className={`w-8 h-8 md:w-10 md:h-10 ${iconColor.replace(' dark:text-gray-400', '')}`} />
+//         </div>
+
+//         <div className="flex-1 min-w-0">
+//           <div className="flex justify-between items-center mb-2">
+//             <h3 className="text-sm sm:text-base font-semibold text-gray-900 leading-tight truncate">
+//               {event.title}
+//             </h3>
+//             <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-white/70 text-gray-700 shadow-sm">
+//               {event.type}
+//             </span>
+//           </div>
+
+//           <div className="gap-x-4 gap-y-1 text-xs sm:text-sm">
+//             <div className="flex justify-between">
+//               <span className="text-gray-500 text-xs sm:text-sm">
+//                 {event.attendees}
+//               </span>
+//               <span className="font-medium text-gray-800 text-xs sm:text-sm">
+//                 {event.date}
+//               </span>
+//             </div>
+
+//             <div className="flex justify-end">
+//               <span className="font-medium text-green-600 text-xs sm:text-sm">
+//                 {event.success}
+//               </span>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+ function EventCard({
+  event,
+  index,
+}: {
+  event: Event;
+  index: number;
+}) {
+  const fallbackIcons = [
+    "logos:react",
+    "logos:nodejs-icon",
+    "logos:tailwindcss-icon",
+    "logos:mongodb-icon",
+    "logos:typescript-icon",
+    "logos:nextjs-icon",
   ];
-  const iconColor = iconColors[index % iconColors.length] + " dark:text-gray-400";
+
+  const iconName = event.icon || fallbackIcons[index % fallbackIcons.length];
+
+  const gradients = [
+    "from-blue-50 to-blue-100",
+    "from-teal-50 to-teal-100",
+    "from-indigo-50 to-indigo-100",
+    "from-sky-50 to-sky-100",
+    "from-cyan-50 to-cyan-100",
+    "from-emerald-50 to-emerald-100",
+  ];
+  const gradient = gradients[index % gradients.length];
+
+  const iconShades = [
+    "text-blue-500",
+    "text-teal-500",
+    "text-indigo-500",
+    "text-sky-500",
+    "text-cyan-600",
+    "text-emerald-600",
+  ];
+  const iconColor = iconShades[index % iconShades.length];
 
   return (
-    <div  className="relative rounded-xl border border-gray-200 shadow-md overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-25 to-sky-100 opacity-80" />
+    <div className="relative overflow-hidden rounded-2xl border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-white/90 backdrop-blur-sm">
+      {/* Background Gradient */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-60`} />
 
-      <div className="relative flex items-start gap-4 p-4">
-        <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white/80 flex items-center justify-center shadow-md">
-          <IconComponent className={`w-8 h-8 md:w-10 md:h-10 ${iconColor.replace(' dark:text-gray-400', '')}`} />
+      <div className="relative flex items-center gap-4 p-5">
+        {/* Icon Container */}
+        <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white shadow-md flex items-center justify-center">
+          <Icon icon={iconName} className={`w-10 h-10 ${iconColor}`} />
         </div>
 
+        {/* Details */}
         <div className="flex-1 min-w-0">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="text-sm sm:text-base font-semibold text-gray-900 leading-tight truncate">
+          <div className="flex justify-between items-start mb-1">
+            <h3 className="text-base font-semibold text-gray-900 truncate">
               {event.title}
             </h3>
-            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-white/70 text-gray-700 shadow-sm">
+            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-white/80 text-gray-700 shadow-sm border border-gray-100">
               {event.type}
             </span>
           </div>
 
-          <div className="gap-x-4 gap-y-1 text-xs sm:text-sm">
+          <div className="text-sm text-gray-600 flex flex-col gap-1">
             <div className="flex justify-between">
-              <span className="text-gray-500 text-xs sm:text-sm">
-                {event.attendees}
-              </span>
-              <span className="font-medium text-gray-800 text-xs sm:text-sm">
-                {event.date}
-              </span>
+              <span className="truncate">{event.attendees}</span>
+              <span className="text-gray-800 font-medium">{event.date}</span>
             </div>
 
             <div className="flex justify-end">
-              <span className="font-medium text-green-600 text-xs sm:text-sm">
+              <span className="font-semibold text-green-600">
                 {event.success}
               </span>
             </div>
