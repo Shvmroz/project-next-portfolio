@@ -9,7 +9,6 @@ import {
   Zap,
 } from "lucide-react";
 import AnimatedCounter from "./AnimatedCounter";
-import { Icon } from "@iconify/react";
 
 // Unified data for projects + skills
 const portfolioHistory = [
@@ -106,60 +105,13 @@ const portfolioHistory = [
   },
 ];
 
-// function EventCard({ event, index }: { event: (typeof portfolioHistory)[0]; index: number; }) {
-//   const IconComponent = event.icon;
-
-//   const iconColors = [
-//     "text-slate-500",
-//     "text-sky-500",
-//     "text-teal-500",
-//     "text-indigo-600",
-//     "text-blue-500",
-//     "text-sky-800",
-//   ];
-//   const iconColor = iconColors[index % iconColors.length] + " dark:text-gray-400";
-
-//   return (
-//     <div  className="relative rounded-xl border border-gray-200 shadow-md overflow-hidden">
-//       <div className="absolute inset-0 bg-gradient-to-br from-sky-25 to-sky-100 opacity-80" />
-
-//       <div className="relative flex items-start gap-4 p-4">
-//         <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white/80 flex items-center justify-center shadow-md">
-//           <IconComponent className={`w-8 h-8 md:w-10 md:h-10 ${iconColor.replace(' dark:text-gray-400', '')}`} />
-//         </div>
-
-//         <div className="flex-1 min-w-0">
-//           <div className="flex justify-between items-center mb-2">
-//             <h3 className="text-sm sm:text-base font-semibold text-gray-900 leading-tight truncate">
-//               {event.title}
-//             </h3>
-//             <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-white/70 text-gray-700 shadow-sm">
-//               {event.type}
-//             </span>
-//           </div>
-
-//           <div className="gap-x-4 gap-y-1 text-xs sm:text-sm">
-//             <div className="flex justify-between">
-//               <span className="text-gray-500 text-xs sm:text-sm">
-//                 {event.attendees}
-//               </span>
-//               <span className="font-medium text-gray-800 text-xs sm:text-sm">
-//                 {event.date}
-//               </span>
-//             </div>
-
-//             <div className="flex justify-end">
-//               <span className="font-medium text-green-600 text-xs sm:text-sm">
-//                 {event.success}
-//               </span>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-function EventCard({ event, index }: { event: (typeof portfolioHistory)[0]; index: number }) {
+function EventCard({
+  event,
+  index,
+}: {
+  event: (typeof portfolioHistory)[0];
+  index: number;
+}) {
   const iconColors = [
     "text-slate-500",
     "text-sky-500",
@@ -168,29 +120,42 @@ function EventCard({ event, index }: { event: (typeof portfolioHistory)[0]; inde
     "text-blue-500",
     "text-sky-800",
   ];
-  const iconColor = iconColors[index % iconColors.length] + " dark:text-gray-400";
+  const iconColor =
+    iconColors[index % iconColors.length] + " dark:text-gray-400";
 
-  // Example icon names (you can customize per event)
-  const eventIcons: Record<string, string> = {
-    meeting: "mdi:account-group",
-    presentation: "mdi:presentation",
-    success: "mdi:check-decagram",
-    project: "mdi:briefcase-outline",
-    default: "mdi:calendar",
+  // Iconify icon mapping (projects + skills)
+  const iconMap: Record<string, string> = {
+    // --- Projects ---
+    "Portfolio Website": "devicon:nextjs",
+    "Event Management No-Code AI": "mdi:robot-excited-outline",
+    "CRM System for Farmers": "mdi:database-cog-outline",
+
+    // --- Skills ---
+    "React.js": "logos:react",
+    "Next.js": "devicon:nextjs",
+    "GitHub": "mdi:github",
+    "No-Code AI": "mdi:robot-outline",
+    "Self-Learning": "mdi:lightbulb-on-outline",
+    "Material UI": "simple-icons:mui",
+    "Tailwind CSS": "logos:tailwindcss-icon",
+    "Bootstrap": "logos:bootstrap",
   };
 
-  // pick an icon based on event type or fallback
-  const iconName = eventIcons[event.type?.toLowerCase()] || eventIcons.default;
+  // fallback if not found
+  const iconName = iconMap[event.title] || "mdi:briefcase-outline";
 
   return (
-    <div className="relative rounded-xl border border-gray-200 shadow-md overflow-hidden">
+    <div className="relative rounded-xl border border-gray-200 shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
       <div className="absolute inset-0 bg-gradient-to-br from-sky-25 to-sky-100 opacity-80" />
 
       <div className="relative flex items-start gap-4 p-4">
         <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white/80 flex items-center justify-center shadow-md">
           <Icon
             icon={iconName}
-            className={`w-8 h-8 md:w-10 md:h-10 ${iconColor.replace(" dark:text-gray-400", "")}`}
+            className={`w-8 h-8 md:w-10 md:h-10 ${iconColor.replace(
+              " dark:text-gray-400",
+              ""
+            )}`}
           />
         </div>
 
@@ -206,12 +171,18 @@ function EventCard({ event, index }: { event: (typeof portfolioHistory)[0]; inde
 
           <div className="gap-x-4 gap-y-1 text-xs sm:text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-500 text-xs sm:text-sm">{event.attendees}</span>
-              <span className="font-medium text-gray-800 text-xs sm:text-sm">{event.date}</span>
+              <span className="text-gray-500 text-xs sm:text-sm">
+                {event.attendees}
+              </span>
+              <span className="font-medium text-gray-800 text-xs sm:text-sm">
+                {event.date}
+              </span>
             </div>
 
             <div className="flex justify-end">
-              <span className="font-medium text-green-600 text-xs sm:text-sm">{event.success}</span>
+              <span className="font-medium text-green-600 text-xs sm:text-sm">
+                {event.success}
+              </span>
             </div>
           </div>
         </div>
