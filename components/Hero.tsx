@@ -140,7 +140,7 @@ function EventCard({ event, index }: { event: (typeof portfolioHistory)[0]; inde
           <div className="gap-x-4 gap-y-1 text-xs sm:text-sm">
             <div className="flex justify-between">
               <span className="text-gray-500 text-xs sm:text-sm">
-                {event.type === "Project" ? "Tech Stack" : "Description"} : {event.attendees}
+                {event.attendees}
               </span>
               <span className="font-medium text-gray-800 text-xs sm:text-sm">
                 {event.date}
