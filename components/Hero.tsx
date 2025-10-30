@@ -148,9 +148,6 @@ function EventCard({ event, index }: { event: (typeof portfolioHistory)[0]; inde
             </div>
 
             <div className="flex justify-between">
-              <span className="text-gray-500 text-xs sm:text-sm">
-                {event.type === "Project" ? "Status" : "Level / Usage"}
-              </span>
               <span className="font-medium text-green-600 text-xs sm:text-sm">
                 {event.success}
               </span>
